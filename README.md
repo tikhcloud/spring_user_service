@@ -8,6 +8,14 @@
 * приложение необходимо реализовать на одном из языков: Java 8, Groovy или Kotlin с использованием Spring Boot;
 * наличие примеров запросов к сервису (например, curl).
 
+**To run an application**
+
+    git clone https://github.com/tikhcloud/spring_user_service.git
+    cd spring_user_service
+    ./mvnw spring-boot:run
+    
+H2 console for in-memory database testing, located on `http://localhost:8080/console`
+
 **Add new user**
 
 _Example:_
