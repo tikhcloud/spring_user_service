@@ -2,10 +2,11 @@ package tikhcloud.spring_user_service.service;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import tikhcloud.spring_user_service.dto.DeleteDto;
 import tikhcloud.spring_user_service.dto.RegistrationDto;
 import tikhcloud.spring_user_service.model.User;
 import tikhcloud.spring_user_service.repository.UserRepository;
+
+import java.util.List;
 
 @Service
 public class UserService {
@@ -28,12 +29,16 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void deleteUser(DeleteDto deleteDto) {
-        userRepository.deleteById(deleteDto.getId());
+    public void deleteUser(Integer id) {
+        userRepository.deleteById(id);
     }
 
     public User findUser(String email) throws Exception {
         return userRepository.findUserByEmail(email)
                 .orElseThrow(() -> new Exception("User with email " + email + ", not found"));
+    }
+
+    public List<User> listUsers() {
+        return userRepository.findAll();
     }
 }
